@@ -10,7 +10,7 @@ public class Village {
 	private Gaulois[] villageois;
 	private int nbVillageois = 0;
 	private int nbEtals = 5; // nombre d'etal defini
-	Marche marche = new Marche(nbEtals);
+	Marche marche = new Marche(nbEtals); // not sure yet about this
 
 
 	public Village(String nom, int nbVillageoisMaximum, int nbEtals) {
