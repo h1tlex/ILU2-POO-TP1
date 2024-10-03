@@ -47,10 +47,22 @@ public class Etal {
 		return "L'étal est libre";
 	}
 
-	public String acheterProduit(int quantiteAcheter, Gaulois acheteur) {
+	public String acheterProduit(int quantiteAcheter, Gaulois acheteur) throws IllegalArgumentException {
 			StringBuilder chaine = new StringBuilder();
+			
+			if(acheteur==null) {
+				throw new NullPointerException("Acheteur n'existe pas\n");
+			}
+			if(!etalOccupe) {
+				throw new IllegalStateException("Etal non occupe\n");
+			}
+			if(quantiteAcheter<1) {
+				throw new IllegalArgumentException("Quantite acheter doit etre superieur à 0\n");
+			}
+			
 			chaine.append(acheteur.getNom() + " veut acheter " + quantiteAcheter
 					+ " " + produit + " à " + vendeur.getNom());
+			
 			if (quantite == 0) {
 				chaine.append(", malheureusement il n'y en a plus !");
 				quantiteAcheter = 0;

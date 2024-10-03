@@ -1,5 +1,6 @@
 package histoire;
 
+import exceptions.VillageSansChefException;
 import personnages.Chef;
 import personnages.Druide;
 import personnages.Gaulois;
@@ -18,6 +19,29 @@ public class Scenario {
 		Gaulois assurancetourix = new Gaulois("Assurancetourix", 2);
 		Gaulois bonemine = new Gaulois("Bonemine", 7);
 		
+		Etal etal1 = new Etal();
+
+		
+		etal1.occuperEtal(obelix, "fleurs", 3);
+		
+		// Acheter Produit
+		try {
+			System.out.println(etal1.acheterProduit(1, asterix));
+		} catch(NullPointerException N) {
+			N.printStackTrace();
+		} catch(IllegalArgumentException I) {
+			I.printStackTrace();
+		} catch(IllegalStateException S) {
+			S.printStackTrace();
+		}
+		
+		// Afficher Village
+		try {
+			System.out.println(village.afficherVillageois());
+		} catch(VillageSansChefException C) {
+			C.printStackTrace();
+		}
+
 //		village.ajouterHabitant(bonemine);
 //		village.ajouterHabitant(assurancetourix);
 //		village.ajouterHabitant(asterix);
